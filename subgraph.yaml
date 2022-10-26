@@ -1,0 +1,29 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: ChallengeManager
+    network: goerli
+    source:
+      address: "0x157EB6396D44F63D3970a72C253BfB5ACEEc80dD"
+      abi: ChallengeManager
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - ChallengeBreak
+        - Deployed
+        - SetUsername
+      abis:
+        - name: ChallengeManager
+          file: ./abis/ChallengeManager.json
+      eventHandlers:
+        - event: ChallengeBreak(indexed address,indexed address,uint256)
+          handler: handleChallengeBreak
+        - event: Deployed(indexed address,indexed address,address[])
+          handler: handleDeployed
+        - event: SetUsername(indexed address,bytes32)
+          handler: handleSetUsername
+      file: ./src/mapping.ts
