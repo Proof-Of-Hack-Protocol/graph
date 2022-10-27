@@ -1,6 +1,15 @@
-type ExampleEntity @entity {
+type Challenge @entity {
   id: ID!
   count: BigInt!
-  challenge: Bytes! # address
-  user: Bytes! # address
+}
+
+type ChallengeSolved @entity {
+  id: ID!
+  challenge: Challenge!
+  player: Player!
+}
+
+type Player @entity {
+  id: ID!
+  username: String
 }

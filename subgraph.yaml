@@ -1,4 +1,4 @@
-specVersion: 0.0.2
+specVersion: 0.0.3
 schema:
   file: ./schema.graphql
 dataSources:
@@ -8,6 +8,7 @@ dataSources:
     source:
       address: "0x157EB6396D44F63D3970a72C253BfB5ACEEc80dD"
       abi: ChallengeManager
+      startBlock: 7834953
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
