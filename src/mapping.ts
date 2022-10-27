@@ -34,14 +34,17 @@ export function handleChallengeBreak(event: ChallengeBreak): void {
   let player = Player.load(event.params.user.toHex())
   if (!player) {
     player = new Player(event.params.user.toHex())
-    player.save();
+    player.totalHacks = BigInt.fromI32(0)
   }
+  player.totalHacks = player.totalHacks + BigInt.fromI32(1)  
+  player.save();
 
   let challengeSolved = ChallengeSolved.load(event.transaction.hash.toHex())
   if (!challengeSolved) {
     challengeSolved = new ChallengeSolved(event.transaction.hash.toHex());
     challengeSolved.player = event.params.user.toHex();
     challengeSolved.challenge = event.params.challenge.toHex();    
+    challengeSolved.save();
   }
 
   // Note: If a handler doesn't require existing field values, it is faster

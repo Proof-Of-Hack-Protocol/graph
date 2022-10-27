@@ -12,4 +12,6 @@ type ChallengeSolved @entity {
 type Player @entity {
   id: ID!
   username: String
+  totalHacks: BigInt!
+  challenges: [ChallengeSolved!]! @derivedFrom(field: "player")
 }
