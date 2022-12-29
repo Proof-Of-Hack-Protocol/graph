@@ -4,10 +4,10 @@
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ ProofOfHackProtocol",
-    "create-local": "graph create --node http://localhost:8020/ ProofOfHackProtocol",
-    "remove-local": "graph remove --node http://localhost:8020/ ProofOfHackProtocol",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 ProofOfHackProtocol"
+    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ proof-of-hacker",
+    "create-local": "graph create --node http://localhost:8020/ proof-of-hacker",
+    "remove-local": "graph remove --node http://localhost:8020/ proof-of-hacker",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 proof-of-hacker"
   },
   "dependencies": {
     "@graphprotocol/graph-cli": "0.29.2",
