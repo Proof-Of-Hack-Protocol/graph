@@ -76,6 +76,7 @@ export function handleSetUsername(event: SetUsername): void {
   let player = Player.load(event.params.user.toHex())
   if (!player) {
     player = new Player(event.params.user.toHex())
+    player.totalHacks = BigInt.fromI32(0)
   }
   player.username = event.params._name.toString();
   player.save();    
